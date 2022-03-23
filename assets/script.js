@@ -1,10 +1,39 @@
 // Assignment Code
+// DOM elements
 var generateBtn = document.querySelector("#generate");
+var passwordEl = document.querySelectoy("#password");
 
 var numbers = "0123456789"
 var lowercase = "abcdefghijklmnopqrstuvwxyz"
 var specialChars = "!@#$%^&*()"
 var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
+
+// Object containing all the random character generating functions
+var randomFunc = {
+  lower: randomLowercase,
+  upper: randomUppercase,
+  number: randomNumber,
+  symbol: randomSymbol
+}
+
+// Generator functions using character codes
+function randomLowercase() {
+  return String.fromCharCode(Math.floor(Math.random() * 26) +97)
+}
+
+function randomUppercase() {
+  return String.fromCharCode(Math.floor(Math.random() * 26) +65)
+}
+
+function randomNumber() {
+  return String.fromCharCode(Math.floor(Math.random() *10) +48)
+}
+
+function randomSymbol() {
+  var symbols = "!@#$%^&*()"
+  return symbols[Math.floor(Math.random() * symbols.length)];
+}
 
 // Write password to the #password input
 function writePassword() {
